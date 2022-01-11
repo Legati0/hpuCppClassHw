@@ -1,0 +1,18 @@
+1:
+it removes everything in ~/
+
+3:
+compiling creates one or more object files
+linking creates an executable out of one or more object files
+
+9:
+yes, it just gets cast to an int -> n == 32
+
+10:
+sum is not initialized, it could hold any value, probably 0, but who knows
+> int sum = 0;
+
+11:
+assingment in if, printf in if gets executed
+> if (n == 0) {
+
