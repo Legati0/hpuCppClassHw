@@ -17,6 +17,6 @@ int main() {
 		t += dt;
 	}
 	//std::cout << t << std::endl;
-	printf("Time to impact: %.3fs\n", t);
+	printf("Time to impact: %.3lfs\n", t);
 	return 0;
 }
