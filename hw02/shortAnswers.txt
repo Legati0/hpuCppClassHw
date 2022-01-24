@@ -1,0 +1,16 @@
+2:
+declaration, tells the compiler that this function exists, with params & return value
+definition, the actual code implementation of the function
+
+3: 
+the C/C++ compiler only looks at each line of code once, so it needs to see a function prototype to know if the function exists or not and what it's params/return value is
+the java compiler looks over the code twice, once to index all functions, so it will see them before actually compiling anything
+
+4:
+it looks for preprocessor statements, statements that start with a '#', for #include, it includes the file, it checks #ifdef/#ifndefs, inserts #define marcos where needed etc.
+
+5:
+to declare everything that is going to be defined/implemented in the corresponding .c/.cc/.cpp file, so the compiler sees the function head (and later classes) that are going to be used, their params/return value
+
+8:
+it is not, it is a marco, that is going to be inserted into the code when the preprocessor makes it's way over the code

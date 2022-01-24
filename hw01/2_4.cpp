@@ -2,7 +2,7 @@
 #include <cstdio>
 
 double acc(double v) {
-	return -9.81 + v * v * 0.5 * 1 * 1 * 1.2 / 80;
+	return -9.81 + v * v * 0.5 * 1.0 * 1.0 * 1.2 / 80.0;
 }
 
 int main() {
