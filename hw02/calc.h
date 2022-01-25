@@ -7,7 +7,10 @@
 #define CD 0.45
 #define A 0.03
 #define P 1.2
-#define G -9.81
+#define G 9.81
+
+// delta t
+#define DT 1.0
 
 double calcDrag(double v);
 double range(double theta);
