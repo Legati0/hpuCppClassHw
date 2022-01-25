@@ -6,6 +6,7 @@ double calcDrag(double v) {
     return 0.5 * CD * A * P * v * v / M;
 }
 double range(double theta) {
+    // the smaller dt gets, the closer we get to 0, so just do this
     if (std::fmod(theta, 180.0) == 0.0)
         return 0;
     theta *= M_PI / 180.0;
@@ -18,6 +19,10 @@ double range(double theta) {
         x += vx * dt;
         y += vy * dt;
         // recalc const vars
+        // would it be better to declare them as vars outside the loop and
+        //  to reassign them every loop cycle? would it save memory? these 
+        //  const vars should just be placed on the stack? what is better 
+        //  style?
         const double v = sqrt(vx * vx + vy * vy);
         const double drag = calcDrag(v);
         const double ax = -drag * vx / v;
