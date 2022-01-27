@@ -1,7 +1,7 @@
 #ifndef CALC_H
 #define CALC_H
 
-// set vars of cannon & g
+// set "vars" of cannon & g
 #define V0 250.0
 #define M 30.0
 #define CD 0.45

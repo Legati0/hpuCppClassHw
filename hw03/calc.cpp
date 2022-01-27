@@ -19,7 +19,7 @@ double range(double theta, double* maxHeight) {
         // recalc x,y
         x += vx * dt;
         y += vy * dt;
-        *maxHeight = std::max(*maxHeight, y);
+        *maxHeight = std::max(*maxHeight, y); // reeval max height
         // recalc const vars
         const double v = sqrt(vx * vx + vy * vy);
         const double drag = calcDrag(v);
