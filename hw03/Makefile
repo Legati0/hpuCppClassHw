@@ -1,6 +1,9 @@
 GXX = g++
 CFLAGS = -Wall -Werror
-main: 4_4.o calc.o
+
+all: run
+
+run: 4_4.o calc.o
 	$(GXX) $(CFLAGS) -o run 4_4.o calc.o
 
 4_4.o: 4_4.cpp calc.h
