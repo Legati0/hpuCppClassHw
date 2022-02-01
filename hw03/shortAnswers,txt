@@ -1,0 +1,23 @@
+1:
+A pointer is a memory address at which some kind of data lies, for an int pointer an int lies at the address.
+The closest to a pointer in java are Objects as those are handled almost like pointers, ex: passing an object to a function doesn't pass a copy of the object, but a reference, so when the object gets modified inside the function, the object outside of the function also gets modified.
+
+9:
+  a) a pointer to an int variable
+  b) a constant int
+  c) a pointer to a constant int
+  d) a constant pointer to an int variable
+  e) a constant pointer to a constant int
+
+12:
+returning a pointer to a local variable does not work, as the stack memory gets freed at the end of the scope
+one could just return the value of x2, instead of a reference
+
+14:
+the code wouldn't compile, as we are referencing n, without first declaring it: 
+  -> error: 'n' was not declared in this scope
+if we were to use 'in' instead of 'n' we could get a seg fault in the line with '*out = sum;' for example when 'nullptr' was passed as out.
+
+15:
+scanf takes as the second to n'th parameter only pointers in which the result can be stored
+ -> scanf("%d", &n);

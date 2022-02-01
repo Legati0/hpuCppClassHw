@@ -32,11 +32,17 @@ double range(double theta, double* maxHeight) {
     return x;
 }
 void table(double min, double max, double step) {
+    // TODO write to file
+    FILE* f = fopen("table.txt", "w");
     printf("Theta (°)\t| Range (m)\t| Max Height (m)\n");
+    fprintf(f, "Theta (°)\t| Range (m)\t| Max Height (m)\n");
     for (auto theta = min; theta <= max; theta += step) {
         double maxHeight = 0.0;
         double x = range(theta, &maxHeight);
         printf("-------------------------------------------------\n");
+        fprintf(f, "-------------------------------------------------\n");
         printf("%.1lf\t\t|\t%.2lf\t|\t%.2lf\n", theta, x, maxHeight);
+        fprintf(f, "%.1lf\t\t|\t%.2lf\t|\t%.2lf\n", theta, x, maxHeight);
     }
+    fclose(f);
 }
