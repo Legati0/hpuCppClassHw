@@ -5,7 +5,8 @@
 
 
 int main() {
-    FILE* fp = fopen("./CantinaBand3.wav", "rb");
+    FILE* fp = fopen("./example.wav", "rb");
+    //FILE* fp = fopen("./CantinaBand3.wav", "rb");
     //FILE* fp = fopen("./StarWars3.wav", "rb");
     //FILE* fp = fopen("./Wav_868kb.wav", "rb");
     fseek(fp, 12, SEEK_SET);    // skip RIFF size WAVE

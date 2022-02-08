@@ -14,12 +14,12 @@ struct Format {
     uint16_t* bits_per_sample;
 };
 
-void parseFmt(unsigned char* contents, unsigned int size, Format* format);
-
-void parseData(unsigned char* contents, unsigned int size, Format* format);
+void readFourccName(FILE* fp, char* fourcc);
 
 unsigned char* readFourccContents(FILE* fp, unsigned int* size);
 
-void readFourccName(FILE* fp, char* fourcc);
+void parseFmt(unsigned char* contents, unsigned int size, Format* format);
+void parseData(unsigned char* contents, unsigned int size, const Format* format);
+
 
 #endif  // CALC_H

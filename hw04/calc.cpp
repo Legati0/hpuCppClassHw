@@ -4,6 +4,30 @@
 
 #include "calc.h"
 
+
+void readFourccName(FILE* fp, char* fourcc) {
+    // read fourcc name
+    fread(fourcc, sizeof(char), 4, fp);
+    fourcc[4] = '\0';
+    printf("FOURCC: %s\n", fourcc);
+}
+
+
+unsigned char* readFourccContents(FILE* fp, unsigned int* size) {
+    // read size
+    char sizeArr[4];
+    fread(sizeArr, sizeof(char), 4, fp);
+    //printf("%d%d%d%d\n", sizeArr[0], sizeArr[1], sizeArr[2], sizeArr[3]);
+    unsigned int* n = (unsigned int*) sizeArr;
+    printf("Size: %d\n", *n);
+
+    unsigned char* contents = new unsigned char[*n];
+    fread(contents, sizeof(unsigned char), *n, fp);
+    *size = *n;
+    return contents;
+}
+
+
 void parseFmt(unsigned char* contents, unsigned int size, Format* format) {
     format->format = (uint16_t*) (contents);
     format->nchannels = (uint16_t*) (contents+2);
@@ -21,9 +45,11 @@ void parseFmt(unsigned char* contents, unsigned int size, Format* format) {
     printf("bits_per_sample: %u\n", *format->bits_per_sample);
 }
 
-void parseData(unsigned char* contents, unsigned int size, Format* format) {
+
+void parseData(unsigned char* contents, unsigned int size, const Format* format) {
     // works same as /2 with 8|16 and is faster than division
     unsigned int bytesPerSample = *format->bits_per_sample % 7; 
+    // iterate over contents and print them
     for (unsigned int offset = 0; offset < size; offset += bytesPerSample) {
         int16_t* byte = (int16_t*) (contents + offset);
         printf("%d", *byte);
@@ -34,25 +60,4 @@ void parseData(unsigned char* contents, unsigned int size, Format* format) {
         }
         printf("\n");
     }
-}
-
-unsigned char* readFourccContents(FILE* fp, unsigned int* size) {
-    // read size
-    char sizeArr[4];
-    fread(sizeArr, sizeof(char), 4, fp);
-    //printf("%d%d%d%d\n", sizeArr[0], sizeArr[1], sizeArr[2], sizeArr[3]);
-    unsigned int* n = (unsigned int*) sizeArr;
-    printf("Size: %d\n", *n);
-
-    unsigned char* contents = new unsigned char[*n];
-    fread(contents, sizeof(unsigned char), *n, fp);
-    *size = *n;
-    return contents;
-}
-
-void readFourccName(FILE* fp, char* fourcc) {
-    // read fourcc name
-    fread(fourcc, sizeof(char), 4, fp);
-    fourcc[4] = '\0';
-    printf("FOURCC: %s\n", fourcc);
 }

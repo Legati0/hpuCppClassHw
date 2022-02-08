@@ -1,0 +1,23 @@
+1:
+in java arrays are objects, in c++ just a bit of
+memory. std::list or std::vector are often used
+when one wants to use arrays but doesn't want to
+work with the "raw" memory.
+
+3:
+yes, function f "says" it won't change b, so we can
+pass it either const or non const int*.
+
+5:
+f(a+2, 4);
+
+6:
+copy doesn't contain the '\0' character that
+determines the end of c-style strings, so printf
+will print the memory starting at copy until it
+reaches a '\0' char at some point.
+
+8:
+array is a local variable that only exists on the
+stack and gets deleted once we leave the scope of
+the function.
