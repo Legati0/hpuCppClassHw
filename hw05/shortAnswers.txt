@@ -1,0 +1,13 @@
+1.
+when declaring an array like this 'int table[5][6]', the
+dimensions have to be specified at compile time.
+
+
+2.
+flat arrays, where the element access is done by 
+multiplicaiton: arr[j*width +i]
+or array of pointers where each points to the beginning
+of the next row in a flat array
+
+3.
+const char** const getArray() ? 
