@@ -24,7 +24,7 @@ double range(double theta, char** arr, int height, int width, int scale) {
 
 		// add char to array
 		const int xpos = (int) x / scale;
-		const int ypos = height - ((int) y / scale); // so we start on the bottom
+		const int ypos = height - ((int) y / scale) - 1; // so we start on the bottom
 		if (ypos >= 0 && ypos < height && xpos >= 0 && xpos < width)
 			arr[ypos][xpos] = '*';
 
