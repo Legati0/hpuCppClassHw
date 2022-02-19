@@ -10,4 +10,4 @@ or array of pointers where each points to the beginning
 of the next row in a flat array
 
 3.
-const char** const getArray() ? 
+const int** const getArray();
