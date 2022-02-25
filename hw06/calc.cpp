@@ -45,6 +45,7 @@ void parseFmt(unsigned char* contents, unsigned int size, Format* format) {
 
 
 void parseData(unsigned char* contents, unsigned int size, const Format* format) {
+    return;
     // works same as /2 with 8|16 and is faster than division
     unsigned int bytesPerSample = format->bits_per_sample % 7; 
     // iterate over contents and print them
@@ -55,23 +56,6 @@ void parseData(unsigned char* contents, unsigned int size, const Format* format)
             offset += bytesPerSample;
             int16_t* byteC2 = (int16_t*) (contents + offset);
             printf("\t|\t%d", *byteC2);
-        }
-        printf("\n");
-    }
-}
-
-void parseData2(unsigned char* contents, unsigned int size, const Format* format) {
-    unsigned int bytesPerSample = format->bits_per_sample % 7;
-    void* data;
-    if (bytesPerSample == 2)
-        data = (int16_t*) contents;
-    else
-        data = (int32_t*) contents;
-    // iterate over contents and print them
-    for (unsigned int i = 0; i < size / bytesPerSample;) {
-        printf("%d", data[i++]);
-        if (format->nchannels == 2) {
-            printf("\t|\t%d", data[i++]);
         }
         printf("\n");
     }

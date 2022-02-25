@@ -1,0 +1,27 @@
+1:
+to use code others already wrote, instead of rewriting
+everything by yourself
+
+2:
+static object and dynamically linked libs
+static object: become part of your executable
+dynamically linked: stay their own, code they contain
+					gets loaded by the exe at runtime
+
+3:
+because the package manager installs other dependencies,
+makes sure there is only one version that works for everything,
+compiling code thats not your own is a pain
+
+4:
+run: main.o
+	g++ -o run -L /usr/local/lib -lpng main.o 
+main.o: main.cc
+	g++ -c -I /usr/local/include main.cc
+
+5:
+a struct is a basic data structure. it can have
+variables, but no methods. One might use it 
+to bundle data together, so a function only takes
+a Point oder Rectangle struct, instead of a high
+number of parameters
