@@ -1,6 +1,7 @@
 1:
 to use code others already wrote, instead of rewriting
 everything by yourself
+grouping together bunch of object files for distribution
 
 2:
 static object and dynamically linked libs
@@ -12,6 +13,7 @@ dynamically linked: stay their own, code they contain
 because the package manager installs other dependencies,
 makes sure there is only one version that works for everything,
 compiling code thats not your own is a pain
+makes use of libraries easier
 
 4:
 run: main.o

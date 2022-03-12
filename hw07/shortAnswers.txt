@@ -1,0 +1,31 @@
+1:
+missing semicolon after the class definition:
+class Projectile {
+	...
+}; // <-
+
+2:
+Class namespace missing in front of constructor name
+arguments have to be double to match the types of 
+position/velocity of the class
+this is a reference, -> has to be used instead of .
+Projectile::Projectile(double position, double velocity) {
+	this->position = position;
+	this->velocity = velocity;
+}
+
+3:
+ a) method that takes an int pointer and returns an int pointer
+ b) method that takes an int pointer and returns a const int pointer
+ c) method that takes an int pointer and returns a const pointer of a const int
+ d) method that takes a const int pointer and returns a const pointer of a const int
+ e) method that takes a const int pointer and returns a const pointer of a const int 
+     and doesn't change the object this method is a part of
+
+5:
+reference gets dereferenced automatically, can't be null
+????
+
+10:
+no need to have int as const
+????
