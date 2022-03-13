@@ -23,9 +23,10 @@ Projectile::Projectile(double position, double velocity) {
      and doesn't change the object this method is a part of
 
 5:
-reference gets dereferenced automatically, can't be null
-????
+references:
+ - get dereferenced automatically
+ - can't change what it points to
+ - can't be null
 
 10:
-no need to have int as const
-????
+no need to have int as const, as int is neither pointer nor reference
