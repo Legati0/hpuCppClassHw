@@ -9,7 +9,7 @@ private:
 
 public:
 	Vector(double x, double y, double z);
-	virtual~ Vector();
+	virtual ~Vector();
 
 	Vector operator+(Vector& vec);
 	Vector operator-(Vector& vec);
