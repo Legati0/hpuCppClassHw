@@ -3,10 +3,11 @@
 #include <iostream>
 
 class Vector {
-public:
-	// should be private, but i' too lazy to write get methods
+
+private:
 	double x, y, z; 
-	
+
+public:
 	Vector(double x, double y, double z);
 	virtual~ Vector();
 
@@ -16,6 +17,7 @@ public:
 	Vector operator*(double a);
 	double operator*(Vector& vec);
 	friend std::ostream& operator<< (std::ostream& out, const Vector& vec); 
+
 };
 
 #endif
