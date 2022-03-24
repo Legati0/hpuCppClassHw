@@ -1,0 +1,32 @@
+2:
+ownership determines which object has to delete heap memory 
+that is shared across multiple objects
+
+6:
+the rule of five is an extension of the rule of three,
+in short: if the class owns heap data, one shoud write a
+- assignment operator
+- copy constructor
+- destructor
+- move constructor
+- move assignment operator
+
+7:
+instead of creating an object, and copying that object
+once it gets returned, the object that is about to get
+returned gets mapped on the variable it gets copied into
+this way, there is no extra copy that has to be created
+
+8:
+copying creates a copy
+moving moves the passed object and doesn't create a copy
+
+12:
+in the case that classes A and B include each other
+without ifndef guards there would be an infinite loop
+when trying to include the other header in the own header
+using a forward declaration just says: this class exist,
+no need to include the full header (only works with pointers
+to objects, for full objects the compiler needs to 
+know the size of an object = see full declaration of the 
+object in question)
