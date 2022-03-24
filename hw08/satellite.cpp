@@ -3,11 +3,6 @@
 #include <iostream>
 
 
-Satellite::Satellite(Planet& c, Vector p, Vector v) :
-	center(c), pos(p), vel(v) {}
-
-Satellite::~Satellite() {}
-
 bool Satellite::update(int dt) {
 	Vector acc;
 	if (!center.gravAcc(pos, acc)) {

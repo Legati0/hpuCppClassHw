@@ -12,8 +12,8 @@ private:
 	Vector pos;
 	Vector vel;
 public:
-	Satellite(Planet& c, Vector p, Vector v);
-	virtual ~Satellite();
+	Satellite(Planet& c, Vector p, Vector v) : center(c), pos(p), vel(v) {};
+	virtual ~Satellite() {};
 
 	bool update(int dt);
 	const Vector& getPos() const;

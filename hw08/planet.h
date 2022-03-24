@@ -12,9 +12,9 @@ private:
 	double mass;
 	double radius;
 public:
-	Planet(double m, double r);
-	virtual ~Planet();
-
+	Planet(double m, double r) : mass(m), radius(r) {};
+	virtual ~Planet() {};
+	
 	bool gravAcc(const Vector& satPos, Vector& ret) const;
 
 };
