@@ -18,7 +18,6 @@ public:
 	FileStreamBuf& operator=(const FileStreamBuf&&) = delete;
 	
 	void resetSuperOPtrs();
-	void resetSuperIPtrs();
 
 	virtual int overflow(int c);
 	virtual int underflow();
