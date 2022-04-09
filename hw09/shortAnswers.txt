@@ -1,0 +1,29 @@
+2:
+so the overridden method of the subclass gets called,
+wenn calling a base class pointer, that points to a subclass
+object, instead of the base class method
+You would not mark a method as virtual, if you don't
+care about calling the method of the derived object in the 
+pointer, but the one of the class pointer
+
+4:
+static_cast should only be used, when you know that the 
+pointer is of the type you want to cast to
+dynamic_cast checks on runtime if the pointer can be
+cast
+one should generally use dynamic_cast, even though it is
+minimally slower
+
+6:
+in void eat(Fruit f) f is a copy of type Fruit, b was 
+cast to a Fruit.
+in void(eat const Fruit& f) f is still the b that was passed
+and could be cast to Banana again with a dynamic_cast
+
+9:
+Exceptions shouldn't be created on the heap, so no "new" 
+should be used.
+
+10:
+Exceptions should always be caught as references, so:
+} catch (Exception& e) {
