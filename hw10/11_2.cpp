@@ -96,5 +96,11 @@ int main() {
 	}
 	std::cout << std::endl << ">>>>fin<<<<" << std::endl;
 	std::cout << text << std::endl;
+
+	for (auto& pair : lookupTable) {
+		for (auto pattern : pair.second) {
+			delete pattern;
+		}
+	}
 	return 0;
 }
