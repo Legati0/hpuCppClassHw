@@ -34,14 +34,11 @@ int main() {
 		// if smallstr already has entry in the lookup table
 		if (lookupTable.find(smallStr) != lookupTable.end()) {
 			// if pattern already in vec: increase occ
-			//if (std::find(lookupTable[smallStr].begin(), lookupTable[smallStr].end(), pair.first) != lookupTable[smallStr].end()) {
-			auto it = std::find_if(lookupTable[smallStr].begin(),
-							 	   lookupTable[smallStr].end(),
-							 	   [smallStr](Pattern const& e) {
-								       return e.pattern == smallStr;
-							 	   });
-			if (it != lookupTable[smallStr].end()) {
-				++(lookupTable[smallStr][it - lookupTable[smallStr].begin()]);
+			auto begin = lookupTable[smallStr].begin();
+			auto end = lookupTable[smallStr].end();
+			auto it = std::find(begin, end, smallStr);
+			if (it != end) {
+				++(lookupTable[smallStr][it - begin]);
 
 			// else add new pattern
 			} else {

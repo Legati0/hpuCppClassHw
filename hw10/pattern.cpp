@@ -1,21 +1,12 @@
 #include "pattern.h"
 #include <iostream>
 
-/*bool Pattern::operator==(const Pattern& other) {
+bool Pattern::operator==(const Pattern& other) const {
 	return other.pattern == pattern;
 }
-bool Pattern::operator==(const std::string& other) {
+bool Pattern::operator==(const std::string& other) const {
 	return other == pattern;
 }
-bool operator==(const Pattern& first, const Pattern& second) {
-	return first.pattern == second.pattern;
-}
-bool operator==(const Pattern& first, const std::string& second) {
-	return first.pattern == second;
-}
-bool operator==(const std::string& first, const Pattern& second) {
-	return first == second.pattern;
-}*/
 int Pattern::occs() const {
 	return occurances;
 }

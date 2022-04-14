@@ -19,12 +19,9 @@ public:
 	bool takeMe(double prob) const;
 	double prob() const;
 
-	/*bool operator==(const Pattern& other) const;
+	bool operator==(const Pattern& other) const;
 	bool operator==(const std::string& other) const;
-	friend bool operator==(const Pattern& first, const Pattern& second);
-	friend bool operator==(const Pattern& first, const std::string& second);
-	friend bool operator==(const std::string& first, const Pattern& second);
-	*/
+
 	Pattern& operator++();
 };
 
