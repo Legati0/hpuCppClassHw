@@ -28,7 +28,7 @@ int main() {
 		else
 			map[current] = 0;
 	}
-	umap<string, vec<Pattern>> lookupTable;
+	umap<string, vec<Pattern*>> lookupTable;
 	for (auto pair : map) {
 		string smallStr = pair.first.substr(0, len - 1);
 		// if smallstr already has entry in the lookup table
@@ -36,35 +36,39 @@ int main() {
 			// if pattern already in vec: increase occ
 			auto begin = lookupTable[smallStr].begin();
 			auto end = lookupTable[smallStr].end();
-			auto it = std::find(begin, end, smallStr);
+			//auto it = std::find(begin, end, smallStr);	// not working with pointers, better way?
+			auto it = std::find_if(begin, end,
+							 	   [smallStr](const Pattern* e) {
+								       return e->pattern == smallStr;
+							 	   });
 			if (it != end) {
 				++(lookupTable[smallStr][it - begin]);
 
 			// else add new pattern
 			} else {
-				lookupTable[smallStr].push_back(Pattern(pair.first));
+				lookupTable[smallStr].push_back(new Pattern(pair.first));
 
 			}
 
 		// create new entry in lookup table, with one pattern
 		} else {
-			vec v = { Pattern(pair.first) };
+			vec v = { new Pattern(pair.first) };
 			lookupTable[smallStr] = v;
 		}
 	}
 	// set cum probabilities
 	for (auto& pair : lookupTable) {
 		double sum = 0.0;
-		for (auto& pattern : pair.second) {
-			sum += pattern.occs();
+		for (auto pattern : pair.second) {
+			sum += pattern->occs();
 		}
 		//std::cout << "SSSSSUUUUUUMMMMMM " << sum << std::endl;
 		double cumSum = 0.0;
-		for (auto& pattern : pair.second) {
+		for (auto pattern : pair.second) {
 			//std::cout << "occs " << pattern.occs() << std::endl;
-			double prob = pattern.occs() / sum;
+			double prob = pattern->occs() / sum;
 			//std::cout << "prob " << prob << std::endl;
-			pattern.setCum(cumSum += prob);
+			pattern->setCum(cumSum += prob);
 			//std::cout << "cumsum " << pattern.prob() << std::endl;
 		}
 		//std::cout << "#########################" << std::endl;
@@ -78,19 +82,19 @@ int main() {
 		//std::cout << '"' << current << '"' << std::endl;
 		// unkown pattern, exit
 		if (lookupTable.find(current) == lookupTable.end()) {
-			std::cout << "pattern not found" << std::endl;
+			std::cout << std::endl << "pattern not found" << std::endl;
 			break;
 		}
 		auto prob = (double) rand() / (double) RAND_MAX;
 		for (auto e : lookupTable[current]) {
-			if (e.takeMe(prob)) {
+			if (e->takeMe(prob)) {
 				//std::cout << "last " << e.last() << std::endl;
-				text += e.last();
+				text += e->last();
 				break;
 			}
 		}
 	}
-	std::cout << ">>>>fin<<<<" << std::endl;
+	std::cout << std::endl << ">>>>fin<<<<" << std::endl;
 	std::cout << text << std::endl;
 	return 0;
 }
