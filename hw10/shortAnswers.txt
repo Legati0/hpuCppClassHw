@@ -1,0 +1,26 @@
+1.
+A template is a kind of class, that forms a template
+class depending on one or more classes/types
+the compiler will create the specific class if the
+template get's used. So a template is basically
+a blueprint
+
+2.
+In java collections contain Objects, as all classes
+are subclasses ob Object, and cast to the specific
+type in <T>. In c++ collections are written with 
+template, so a specific class for each type gets 
+compiled
+
+3.
+template is a blueprint to create a class depending 
+on one or more types/classes
+
+7.
+In java the <> determine to what the contained 
+objects get cast, in c++ they determine the classes
+in the specificly compiled class
+
+8.
+because containers store objects and references are
+not objects
